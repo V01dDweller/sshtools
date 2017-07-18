@@ -5,7 +5,7 @@ I spend all day logging into Linux servers via ssh. My favorite ssh client is th
 
 ### openssh wrappers ###
 
-These are wrappers around the ssh command. The get session logging, lssh invokes script to capture each session to a directory with each session file using YYYY-MM-DD-MyHostname-Remotehostname.log. tssh does the same thing only it wraps lssh in a tmux session, complete with tmux labels. See my "dotfiles" repo for my tmux config. Both wrappers can optionionally apply mintty color schemes. 
+These are wrappers around the ssh command. To get session logging, lssh invokes script to capture each session to a directory with each session file using YYYY-MM-DD-MyHostname-Remotehostname.log. tssh does the same thing only it wraps lssh in a tmux session, complete with tmux labels. See my "dotfiles" repo for my tmux config. Both wrappers can optionionally apply mintty color schemes. 
 
 * lssh
 * tssh
