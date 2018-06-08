@@ -4,12 +4,16 @@ export TERM=xterm-256color
 
 # Colors
 red=`tput setaf 1`
+redbg=`tput setab 197`
 green=`tput setaf 2`
 yellow=`tput setaf 3`
 blue=`tput setaf 4`
+niceblue=`tput setaf 27`
 purple=`tput setaf 5`
 cyan=`tput setaf 6`
 white=`tput setaf 7`
+orange=`tput setaf 208`
+bold=`tput bold`
 reset=`tput sgr0`
 
 targetDate=`echo $1|sed 's/\//-/g'`
@@ -23,17 +27,15 @@ ls -hl $targetDate*| awk '{print $10"	"$6"	"$9}'
 echo " "
 echo ${reset}
 
-read -p "Press [enter] to continue..."
+read -p "[Enter] to continue..."
 
 
 echo " "
-echo ${cyan}
-echo "    _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/"
+echo "${cyan}    _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/${reset}"
 echo ""
 echo "             Searching for commands issued on $targetDay, $targetDate"
 echo ""
-echo "_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/"
-echo ${reset}
+echo "${cyan}_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/${reset}"
 
 for i in `ls --color=none $targetDate*`
 	do
