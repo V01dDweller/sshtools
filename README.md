@@ -19,10 +19,10 @@ tssh does the same thing only it wraps lssh in a tmux session with the short hos
 
 I find that I frequently need to remember what I did on a collection of hosts on a certain day. These scripts allow me to create "daily" reports based on the logging collected by the lssh or tssh. The "search" scripts try to pinch out only that commands issued, minus their output, so I can get an idea of what I was working on. The scripts are just looking for my go-to bash prompt which can be found in my .bash_profile or .bashrc in the dotfile repo.
 
-* daily
-* daily2
-* README.md
-* search
+* daily - Shows log report for spcified date, usage, e.g.: `daily 2018-06-08`
+* daily2 - Same as above only it shows the custom prompt with the command, e.g. to see the time stamps, etc.
+* search - attempts to pinch just the commands issued from the log, e.g. `search <log-file-name>`
 * search2
 * search3
 * search4
+
