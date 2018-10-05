@@ -18,8 +18,8 @@ fi
 # Clip the hostname from the FQDN, DNS suffix-search will replace, if needed. 
 HOST=`echo $FULLHOST|cut -d'.' -f1`
 
-# Log ssh client activity via script
-/usr/bin/script -a -q -c "/usr/bin/ssh -X -Y $1" $LOGDIR/$DATE-$MACHINE-$HOST.log
+# Log ssh client activity via tee
+"/usr/bin/ssh -X -Y $1" | tee $LOGDIR/$DATE-$MACHINE-$HOST.log
 
 # Reset color scheme to default (grey on black)
 default
