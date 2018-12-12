@@ -56,7 +56,7 @@ then
   HOST=`echo $FULLHOST|cut -d'.' -f1`
 fi
 
-# Choose a Mintty color scheme based on the hostname
+# Choose a Mintty or iTerm color scheme based on the hostname
 if [[ $HOST == "host1" || $HOST == "host2" || $HOST == "host3" || $HOST == "host4" || $HOST == "host5" || $HOST == "host6" ]]
 then
  # Purple for Ansible control machines or Jenkins CI server
