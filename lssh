@@ -6,7 +6,7 @@ source ~/.bash_mintty_colors
 
 USERNAME=`whoami`
 DATE=`/usr/bin/date +%Y-%m-%d`
-LOGDIR="/home/karl.simpson/sshlogs"
+LOGDIR="~/sshlogs"
 MACHINE=`/usr/bin/hostname`
 
 # Clip off the username, if provided, and keep the hostname
