@@ -1,13 +1,13 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # Get Mintty color schemes
 shopt -s expand_aliases
 source ~/.bash_mintty_colors
 
 USERNAME=`whoami`
-DATE=`/usr/bin/date +%Y-%m-%d`
+DATE=`date +%Y-%m-%d`
 LOGDIR="${HOME}/sshlogs"
-MACHINE=`/usr/bin/hostname`
+MACHINE=`hostname`
 
 # Create a unique session name for tmux tied to date and time
 # This prevents tmux from attaching to an existing session
@@ -18,8 +18,8 @@ sessionName=`date +%Y-%m-%d-%H-%M-%S`
 # Clip off the username, if provided, and keep the hostname
 if [[ $1 == *"@"* ]]
 then
- FULLHOST=`echo $1|/usr/bin/cut -d'@' -f 2`
- USERNAME=`echo $1|/usr/bin/cut -d'@' -f 1`
+ FULLHOST=`echo $1|cut -d'@' -f 2`
+ USERNAME=`echo $1|cut -d'@' -f 1`
 else
  FULLHOST=$1
 fi
@@ -74,8 +74,8 @@ esac
 echo -ne '\e]0;'$LABEL'\a'
 
 # Wrap tmux around lssh
-/usr/bin/tmux new -s $sessionName -n "$LABEL" -d lssh $USERNAME@$FULLHOST
-/usr/bin/tmux attach
+tmux new -s $sessionName -n "$LABEL" -d lssh $USERNAME@$FULLHOST
+tmux attach
 
 # Reset Mintty color scheme to default (grey on black)
 default

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 export TERM=xterm-256color
 
@@ -32,6 +32,6 @@ echo "Searching for commands issued on $targetDate"
 echo "========================================================================"
 
 for i in `ls --color=none $targetDate*`
-	do
-		search $i
-	done | more
+do
+  search $i
+done | more
