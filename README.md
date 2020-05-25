@@ -13,7 +13,7 @@ To get session logs, lssh invokes **script** to capture ssh sessions to a direct
 
 * tssh
 
-tssh does the same thing only it wraps lssh in a tmux session with the short hostname as the tmux pane label. See my [dotfiles](https://github.com/V01dDweller/dotfiles) repo for my tmux config. Both wrappers can optionionally apply a mintty color schemes. 
+tssh does the same thing only it wraps lssh in a tmux session with the short hostname as the tmux pane label. See my [dotfiles](https://github.com/V01dDweller/dotfiles) repo for my tmux config. Both wrappers can optionionally apply mintty color schemes. 
 
 ### ssh log reading ###
 
