@@ -1,19 +1,18 @@
 #!/bin/bash
 
-# Get Mintty color schemes
+set -eou pipefail
 shopt -s expand_aliases
-source ~/.bash_mintty_colors
 
-USERNAME=`whoami`
-DATE=`date +%Y-%m-%d`
+USERNAME=$(whoami)
+DATE=$(date +%Y-%m-%d)
 LOGDIR="${HOME}/sshlogs"
-MACHINE=`hostname`
+MACHINE=$(hostname)
 
 # Clip off the username, if provided, and keep the hostname
 if [[ $1 == *"@"* ]]
 then
-  FULLHOST=`echo $1 | cut -d'@' -f 2`
-  USERNAME=`echo $1 | cut -d'@' -f 1`
+ FULLHOST=$(echo "$1" | cut -d'@' -f 2)
+ USERNAME=$(echo "$1" | cut -d'@' -f 1)
 else
   FULLHOST=$1
 fi
@@ -22,11 +21,11 @@ fi
 if [[ $FULLHOST =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   HOST=$FULLHOST
 else
-  HOST=`echo $FULLHOST|cut -d'.' -f1`
+  HOST=$(echo "$FULLHOST" | cut -d'.' -f1)
 fi
 
 # Log ssh client activity via tee
-ssh -X -Y $1 | tee -a $LOGDIR/$DATE-$MACHINE-$HOST.log
+ssh -A -X -Y "$1" | tee -a "$LOGDIR"/"$DATE"-"$MACHINE"-"$HOST".log
 
 # Reset color scheme to default (grey on black)
 default
