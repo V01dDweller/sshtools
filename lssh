@@ -24,6 +24,11 @@ else
   HOST=$(echo "$FULLHOST" | cut -d'.' -f1)
 fi
 
+# If inside tmux, set pane title using OSC escape sequence
+if [[ -n "${TMUX:-}" ]]; then
+  printf '\033]2;%s\033\\' "$HOST"
+fi
+
 # Log ssh client activity via tee
 ssh -A -X -Y "$1" | tee -a "$LOGDIR"/"$DATE"-"$MACHINE"-"$HOST".log
 
