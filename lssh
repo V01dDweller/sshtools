@@ -25,6 +25,14 @@ else
 fi
 
 # If inside tmux, set pane title using OSC escape sequence
+# NOTE: Requires the following lines in ~/.tmux.conf
+
+# # Add labels for Tmux panes (when there's more than 1)
+# set -g pane-border-status bottom
+# #set -g pane-border-format "#{pane_index} #{pane_current_command}"
+# set -g pane-border-format "#P #T"
+# set-hook -g -w pane-focus-in "set-option -Fw pane-border-status '#{?#{e|>:#{window_panes},1},bottom,off}'"
+
 if [[ -n "${TMUX:-}" ]]; then
   printf '\033]2;%s\033\\' "$HOST"
 fi
