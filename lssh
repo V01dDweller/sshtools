@@ -17,7 +17,7 @@ else
   FULLHOST=$1
 fi
 
-# Clip the hostname from the FQDN, DNS suffix-search will replace, if needed. 
+# Clip the hostname from the FQDN, DNS suffix-search will replace, if needed.
 if [[ $FULLHOST =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   HOST=$FULLHOST
 else
